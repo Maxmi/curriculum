@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+const digest = require('../digest')
+const queries = require('../database/queries')
+
+
+const loadSkillsFromDigest = () =>
+  digest().then(digest => digest.skills)
+
+const loadChecks = () =>
+
+
+const loadCheckLog = () =>
+
+loadSkillsFromDigest()
+  .then(skills => {
+    console.log(skills)
+  })
+  .catch(error => {
+    console.warn(error.message)
+    console.error(error)
+    process.exit(1)
+  })
