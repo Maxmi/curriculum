@@ -7,17 +7,26 @@ const queries = require('../database/queries')
 const loadSkillsFromDigest = () =>
   digest().then(digest => digest.skills)
 
-const loadChecks = () =>
+Promise.all([
+  loadSkillsFromDigest(),
+  queries.getAllChecks(),
+  queries.getAllCheckLogs(),
+])
+.then(([skills, checks, checkLogs]) => {
+  const skillIds = Object.keys(skills)
 
+  const missmatchedChecks = checks.filter(check =>
+    !skillIds.includes(check.label)
+  )
 
-const loadCheckLog = () =>
-
-loadSkillsFromDigest()
-  .then(skills => {
-    console.log(skills)
-  })
-  .catch(error => {
-    console.warn(error.message)
-    console.error(error)
-    process.exit(1)
-  })
+  console.log(checks.length)
+  console.log(missmatchedChecks.length)
+})
+.catch(error => {
+  console.warn(error.message)
+  console.error(error)
+  process.exit(1)
+})
+.then(() => {
+  process.exit(0)
+})
