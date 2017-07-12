@@ -3,8 +3,8 @@
 
 ## Skills
 
-- Can describe what "Defensive Programming" means
-- Can give two examples of "Defensive Programming"
+- Can describe the general programming term `Defensive Programming`
+- Can give two examples of "Defensive Programming" in JavaScript
 - Can design a schema and queries for a SQL Database
 
 ## Description

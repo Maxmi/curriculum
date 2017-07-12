@@ -2,8 +2,8 @@
 
 ## Skills
 
-- Can make an asynchronous request to a server
-- Can make use of the `fetch` API
+- Can make an asynchronous request to a server from the Browser
+- Can make use of the `fetch` browser API
 
 ## Suggested Resources
 
